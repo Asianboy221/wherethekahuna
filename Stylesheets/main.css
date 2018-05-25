@@ -8,6 +8,9 @@ html, body {
     width: 100%;
     font-size: 18px;
 }
+form {
+    margin-bottom: 15px;
+}
 .intro{
     height: 100%;
     width: 100%;
@@ -39,7 +42,7 @@ html, body {
     font-family: 'Oswald';
     color: #3D7EFF;
     font-size: 135%;
-    padding: 10px 20px;
+    padding: 5px 10px;
     margin: 8px 8px;
     border: solid #3D7EFF 3px;
     text-transform: uppercase;
