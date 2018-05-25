@@ -1,10 +1,63 @@
-body{
-    background-color: gray
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-size: 18px;
 }
-h1{
-    color:whitesmoke
+.intro{
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    background: url(https://www.swaybar.co.uk/app/uploads/sites/34/2017/07/Restaurant-Booths-2.png) no-repeat 50% 50%;
+    display: table;
+    top: 0;
+    background-size: cover;
 }
-img{
-    width: 1500px;
-    height: 600px;
+.intro .inner {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    max-width: none;
+}
+.content {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+.content h1 {
+    font-family: 'Raleway', sans-serif;
+    color: #F9F3F4;
+    text-shadow: 0px 0px 300px #000;
+    font-size: 500%;
+}
+.btn {
+    border-radius: 9px;
+    font-family: 'Oswald';
+    color: #3D7EFF;
+    font-size: 135%;
+    padding: 10px 20px;
+    margin: 8px 8px;
+    border: solid #3D7EFF 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.btn:hover {
+    color: #FFF;
+    border: solid #FFF 3px;
+}
+input[type=text] {
+    width: 50%;
+    padding: 10px 20px;
+    display: inline-block;
+    border: solid #F9F3F4 3px;
+    margin: 8px 8px;
+}
+.inputs {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
 }
