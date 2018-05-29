@@ -10,18 +10,23 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 50%;
+        height: 100%;
+        width: 95%;
+        margin: 50px 50px 0px 50px;
+        vertical-align: middle
       }
     </style>
   </head>
   <body>
-    <section class="upper" id="map">
-        <!-- <div id="map"></div> -->
-    </section>
-    <section class="lower">
+    <section class="intro">
 
+      <section class="upper" id="map">
+        <!-- <div id="map"></div> -->
+      </section>
+      <section class="lower">
+        <h3>This is where a the place will be displayed</h3>
+      </section>
     </section>
-    
     <script>
       var map;
       function initMap() {

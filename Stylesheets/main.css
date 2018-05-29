@@ -29,7 +29,6 @@ form {
 .upper {
     height: 50%;
     width: 100%;
-    margin: auto;
     display: table;
     top: 0;
     background-size: cover;
@@ -37,9 +36,7 @@ form {
 .lower {
     height: 50%;
     width: 100%;
-    margin: auto;
-    background: url(https://www.swaybar.co.uk/app/uploads/sites/34/2017/07/Restaurant-Booths-2.png) no-repeat 50% 50%;
-    display: table;
+    display: table-row;
     top: 0;
     background-size: cover;
 }
