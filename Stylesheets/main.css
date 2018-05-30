@@ -20,6 +20,15 @@ form {
     top: 0;
     background-size: cover;
 }
+.gridlayout{
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    background: url(../img/landingbackground.png) no-repeat 50% 50%;
+    display: grid;
+    top: 0;
+    background-size: cover; 
+}
 .intro .inner {
     display: table-cell;
     vertical-align: middle;
@@ -29,15 +38,16 @@ form {
 .upper {
     height: 50%;
     width: 100%;
-    display: table;
+    grid-row: 1;
     top: 0;
     background-size: cover;
 }
 .lower {
     height: 50%;
     width: 100%;
-    display: table-row;
-    top: 0;
+    margin: 150px;
+    grid-row: 2;
+    top: 50px;
     background-size: cover;
 }
 .content {
