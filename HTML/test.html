@@ -70,8 +70,8 @@
           var service = new google.maps.places.PlacesService(map);
           service.nearbySearch({
             location: pos,
-            radius: 500,
-            type: ['food']
+            radius: 8046,
+            type: ['restaurant', 'bar']
           }, callback);
         }, function () {
           handleLocationError(true, infoWindow, map.getCenter());
