@@ -34,6 +34,9 @@
   </section>
   <script>
     var map, infoWindow;
+    var findInput = document.getElementById("find").value;
+    var findInput = document.getElementById("location").value;
+
     function initMap() {
       // The starting location of Salt Lake City
       var startingLocation = { lat: 40.760779, lng: -111.891047 };
@@ -58,13 +61,11 @@
             url: "../img/usflag.png", // url
             scaledSize: new google.maps.Size(50, 50), // scaled size
             origin: new google.maps.Point(0, 0), // origin
-            //anchor: new google.maps.Point(0, 0) // anchor
           };
           var currentlocation = {
             url: "../img/currentlocation.png", // url
             scaledSize: new google.maps.Size(50, 50), // scaled size
             origin: new google.maps.Point(0, 0), // origin
-            //anchor: new google.maps.Point(0, 0) // anchor
           };
           var marker = new google.maps.Marker({
             position: pos,
@@ -77,7 +78,8 @@
           service.nearbySearch({
             location: pos,
             radius: 1609, //1 Mile
-            type: ['restaurant', 'bar']
+            keyword: ['chicken'] ,
+            type: ['restaurant']
           }, callback);
         }, function () {
           handleLocationError(true, infoWindow, map.getCenter());
@@ -103,14 +105,13 @@
         }
       }
     }
-
+    //Add Markers to nearby places
     function createMarker(place) {
       var placeLoc = place.geometry.location;
       var icon = {
         url: "../img/locations.png", // url
         scaledSize: new google.maps.Size(50, 50), // scaled size
         origin: new google.maps.Point(0, 0), // origin
-        //anchor: new google.maps.Point(0, 0) // anchor
       };
       var marker = new google.maps.Marker({
         map: map,
