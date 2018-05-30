@@ -48,6 +48,7 @@
         center: startingLocation
       });
       directionsDisplay.setMap(map);
+      directionsDisplay.setOptions({suppressMarkers: true})
       infoWindow = new google.maps.InfoWindow;
       // Try HTML5 geolocation.
       if (navigator.geolocation) {
