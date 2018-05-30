@@ -60,17 +60,23 @@
             origin: new google.maps.Point(0, 0), // origin
             //anchor: new google.maps.Point(0, 0) // anchor
           };
+          var currentlocation = {
+            url: "../img/currentlocation.png", // url
+            scaledSize: new google.maps.Size(50, 50), // scaled size
+            origin: new google.maps.Point(0, 0), // origin
+            //anchor: new google.maps.Point(0, 0) // anchor
+          };
           var marker = new google.maps.Marker({
             position: pos,
             map: map,
             animation: google.maps.Animation.DROP,
-            icon: icon
+            icon: currentlocation
           });
 
           var service = new google.maps.places.PlacesService(map);
           service.nearbySearch({
             location: pos,
-            radius: 8046,
+            radius: 1609, //1 Mile
             type: ['restaurant', 'bar']
           }, callback);
         }, function () {
