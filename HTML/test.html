@@ -34,7 +34,7 @@
         var startingLocation = {lat: 40.760779, lng: -111.891047};
         // The map, centered at Salt Lake City
         map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 8, 
+            zoom: 16, 
             center: startingLocation
         });
         infoWindow = new google.maps.InfoWindow;
@@ -46,11 +46,19 @@
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
+            
             //Center map over current location add marker to current location
             map.setCenter(pos);
+            var icon = {
+              url: "../img/usflag.png", // url
+              scaledSize: new google.maps.Size(50, 50), // scaled size
+              origin: new google.maps.Point(0,0), // origin
+              anchor: new google.maps.Point(0, 0) // anchor
+            };
             var marker = new google.maps.Marker({
               position: pos, 
-              map: map});
+              map: map,
+              icon: icon});
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
