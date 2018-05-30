@@ -58,16 +58,12 @@
             url: "../img/usflag.png", // url
             scaledSize: new google.maps.Size(50, 50), // scaled size
             origin: new google.maps.Point(0, 0), // origin
-<<<<<<< HEAD
-            anchor: new google.maps.Point(0, 0) // anchor
-=======
             //anchor: new google.maps.Point(0, 0) // anchor
->>>>>>> d0e9c50365d71ab015050aa5048468e0014f5526
           };
           var marker = new google.maps.Marker({
             position: pos,
             map: map,
-<<<<<<< HEAD
+            animation: google.maps.Animation.DROP,
             icon: icon
           });
 
@@ -80,17 +76,6 @@
         }, function () {
           handleLocationError(true, infoWindow, map.getCenter());
         });
-=======
-            animation: google.maps.Animation.DROP,
-            icon: icon
-          });
-          marker.addListener('click', toggleBounce);
-        },
-          function () {
-            handleLocationError(true, infoWindow, map.getCenter());
-          }
-        );
->>>>>>> d0e9c50365d71ab015050aa5048468e0014f5526
       } else {
         // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
@@ -103,13 +88,6 @@
         'Error: The Geolocation service failed.' :
         'Error: Your browser doesn\'t support geolocation.');
       infoWindow.open(map);
-    }
-  </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAubZQ79mLt-Yli8Mac-8I4Nl56j8Y2W3s&callback=initMap" async
-    defer></script>
-</body>
-
-<<<<<<< HEAD
     }
 
     function callback(results, status) {
@@ -131,6 +109,7 @@
       var marker = new google.maps.Marker({
         map: map,
         position: place.geometry.location,
+        animation: google.maps.Animation.DROP,
         icon: icon
       });
 
@@ -147,14 +126,9 @@
         'Error: Your browser doesn\'t support geolocation.');
       infoWindow.open(map);
     }
-
-
-
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAubZQ79mLt-Yli8Mac-8I4Nl56j8Y2W3s&libraries=places&callback=initMap"
     async defer></script>
 </body>
 
-=======
->>>>>>> d0e9c50365d71ab015050aa5048468e0014f5526
 </html>
