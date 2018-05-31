@@ -50,7 +50,7 @@ function initMap() {
             }, callback);
             var request = {
                 //location: map.getCenter(),
-                location: locationInput,
+                address: locationInput,
                 radius: 1609,
                 //query: getRandomFood()
                 //icon: icon
@@ -83,6 +83,8 @@ function callback(results, status) {
                 icon: createMarker(results[0])
             }
         });
+        console.log(results[0]);
+        console.log(results[1]);
     }
     calculateAndDisplayRoute(directionsService, directionsDisplay);
     updateDisplay(results[0], status);

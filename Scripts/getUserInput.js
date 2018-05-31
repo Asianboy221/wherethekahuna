@@ -24,6 +24,7 @@ function getUrlVariables(url) {
         locationInput = locationInput.replace('+', ' ');
       }
     }
+    //location = locationInput.getPlace();
     console.log('Food = ' + foodInput + ' Location = ' + locationInput);
   }
 }
