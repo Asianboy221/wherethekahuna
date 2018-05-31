@@ -45,12 +45,12 @@ function initMap() {
             service.nearbySearch({
                 location: pos,
                 radius: 1609, //1 Mile
-                keyword: [getRandomFood()],
+                keyword: [foodInput],
                 type: ['restaurant']
             }, callback);
             var request = {
-                location: map.getCenter(),
-                //location: locationInput,
+                //location: map.getCenter(),
+                location: locationInput,
                 radius: 1609,
                 //query: getRandomFood()
                 //icon: icon
@@ -64,20 +64,7 @@ function initMap() {
     }
     getUrlVariables();
 }
-function getRandomFood() {
-    var foods = [
-        "Burgers",
-        "Chinese",
-        "Mediterranean",
-        "Cheesesteaks",
-        "Chicken",
-        "Fast Food",
-        "Vietnamese"
-    ];
-    var food = foods[Math.floor(Math.random() * foods.length)]
-    console.log('Food = ' + food);
-    return food;
-}
+
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(browserHasGeolocation ?
