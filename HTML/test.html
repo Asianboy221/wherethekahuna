@@ -24,12 +24,18 @@
 
 <body>
   <section class="gridlayout">
-
     <section class="upper" id="map">
       <!-- <div id="map"></div> -->
     </section>
     <section class="lower">
-      <h3>This is A TEST!!!!!!</h3>
+      <h3 id="displayName"></h3>
+      <section class="displaygrid">
+        <img id="displayPhoto"/>
+        <div id="displayHours"></div>
+        <div id="displayRating"></div>
+        <div id="displayAddress"></div>
+      </section>
+      
     </section>
   </section>
   <script>
@@ -134,6 +140,19 @@
         });
       }
       calculateAndDisplayRoute(directionsService, directionsDisplay);
+      updateDisplay(results[0], status);
+    }
+
+    function updateDisplay(result, status) {
+      if(status == google.maps.places.PlacesServiceStatus.OK) {
+        console.log(JSON.stringify(result));
+        document.getElementById('displayName').innerHTML = result.name;
+        var photos = result.photos;
+        document.getElementById('displayPhoto').src = photos[0].getUrl({'maxWidth': 350, 'maxHeight': 250});
+        document.getElementById('displayHours').innerHTML = result.opening_hours.weekday_text;
+        document.getElementById('displayRating').innerHTML = result.rating;
+        document.getElementById('displayAddress').innerHTML = result.vicinity;
+      }
     }
     //function callback(results, status) {
     //if (status === google.maps.places.PlacesServiceStatus.OK) {

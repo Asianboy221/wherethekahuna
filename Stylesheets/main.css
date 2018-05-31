@@ -31,6 +31,30 @@ form {
     top: 0;
     background-size: cover; 
 }
+.displaygrid{
+    display: grid
+}
+#displayName{
+    font-family: 'Raleway', sans-serif;
+    color: #F9F3F4;
+    text-shadow: 0px 0px 300px #000;
+    font-size: 200%;
+}
+#displayHours{
+    font-family: 'Raleway', sans-serif;
+    color: #F9F3F4;
+    text-shadow: 0px 0px 300px #000;
+}
+#displayRating{
+    font-family: 'Raleway', sans-serif;
+    color: #F9F3F4;
+    text-shadow: 0px 0px 300px #000;
+}
+#displayAddress{
+    font-family: 'Raleway', sans-serif;
+    color: #F9F3F4;
+    text-shadow: 0px 0px 300px #000;
+}
 .intro .inner {
     display: table-cell;
     vertical-align: middle;
