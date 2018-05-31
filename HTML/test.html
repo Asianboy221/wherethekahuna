@@ -117,7 +117,6 @@
         "Vietnamese"
       ];
       var food = foods[Math.floor(Math.random() * foods.length)]
-      console.log(food);
       return food;
     }
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -145,13 +144,20 @@
 
     function updateDisplay(result, status) {
       if(status == google.maps.places.PlacesServiceStatus.OK) {
-        console.log(JSON.stringify(result));
-        document.getElementById('displayName').innerHTML = result.name;
-        var photos = result.photos;
-        document.getElementById('displayPhoto').src = photos[0].getUrl({'maxWidth': 350, 'maxHeight': 250});
-        document.getElementById('displayHours').innerHTML = result.opening_hours.weekday_text;
-        document.getElementById('displayRating').innerHTML = result.rating;
-        document.getElementById('displayAddress').innerHTML = result.vicinity;
+        //console.log(JSON.stringify(result));
+        var service = new google.maps.places.PlacesService(map);
+        var request = {
+          reference: result.reference
+        };
+        var placeDetails = service.getDetails(request, function(place, status) {
+          //console.log(place);
+          document.getElementById('displayName').innerHTML = place.name;
+          var photos = place.photos;
+          document.getElementById('displayPhoto').src = photos[0].getUrl({'maxWidth': 350, 'maxHeight': 250});
+          document.getElementById('displayHours').innerHTML = place.opening_hours.weekday_text;
+          document.getElementById('displayRating').innerHTML = place.rating;
+          document.getElementById('displayAddress').innerHTML = place.vicinity;
+        });
       }
     }
     //function callback(results, status) {
