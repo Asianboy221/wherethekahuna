@@ -62,18 +62,20 @@ form {
     text-shadow: 0px 0px 300px #000;
     font-size: 500%;
 }
-.btn {
+input[type=submit] {
     border-radius: 9px;
     font-family: 'Oswald';
     color: #3D7EFF;
     font-size: 135%;
     padding: 5px 10px;
-    margin: 8px 8px;
+    margin: 0 auto;
     border: solid #3D7EFF 3px;
     text-transform: uppercase;
     text-decoration: none;
+    display: block;
+    
 }
-.btn:hover {
+input[type=submit]:hover {
     color: #FFF;
     border: solid #FFF 3px;
 }
