@@ -40,8 +40,8 @@
   </section>
   <script>
     var map, infoWindow, pos, placeLoc, directionsService, directionsDisplay;
-    //var findInput = document.getElementById("find").value;
-    //var findInput = document.getElementById("location").value;
+    var findInput = document.getElementById("find").value;
+    var locationInput = document.getElementById("location").value;
 
     function initMap() {
       // The starting location of Salt Lake City
@@ -206,6 +206,9 @@
           }
         });
       }
+    // function getData(){
+    //   var foodType = window.location.document.
+    // }
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAubZQ79mLt-Yli8Mac-8I4Nl56j8Y2W3s&libraries=places&callback=initMap"
     async defer></script>
