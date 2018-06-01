@@ -184,7 +184,7 @@ function changePlace() {
         }
     });
     calculateAndDisplayRoute(directionsService, directionsDisplay);
-    updateDisplay(showingplace, status);
+    updateDisplay(showingplace, google.maps.places.PlacesServiceStatus.OK);
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
