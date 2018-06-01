@@ -98,12 +98,13 @@ function updateDisplay(result, status) {
             reference: result.reference
         };
         var placeDetails = service.getDetails(request, function (place, status) {
-            //console.log(place);
+            console.log(place);
             document.getElementById('displayName').innerHTML = place.name;
             var photos = place.photos;
             document.getElementById('displayPhoto').src = photos[0].getUrl({ 'maxWidth': 350, 'maxHeight': 250 });
             var hours = place.opening_hours.weekday_text;
             var rating = place.rating;
+            var cost = place.price_level;
             document.getElementById('displayAddress').innerHTML = place.vicinity;
 
             //Display Rating
@@ -116,6 +117,19 @@ function updateDisplay(result, status) {
             innerStars.className = 'innerStars';
             outerStars.appendChild(innerStars);
             document.getElementById('displayRating').appendChild(outerStars)
+            var starPer = (rating / 5) * 100;
+            var starRounded = `${(Math.round(starPer / 10) * 10)}%`;
+            document.querySelector('.innerStars').style.width = starRounded;
+
+            //Display Cost
+            var showPrice = "";
+            for(var i = 0; i < cost; i++){
+                showPrice += "$";
+            }
+            var costDis = document.createElement('div');
+            costDis.id = 'displayCost'
+            costDis.innerHTML = showPrice;
+            document.getElementById('displayRating').appendChild(costDis);
 
             //Display Hours
             for(var i = 0; i < hours.length; i++) {

@@ -8,6 +8,9 @@ html, body {
     width: 100%;
     font-size: 18px;
 }
+p{
+    margin-bottom: 5px;
+}
 form {
     margin-bottom: 15px;
 }
@@ -79,7 +82,7 @@ form {
     font-family: 'Raleway', sans-serif;
     color: #F9F3F4;
     text-shadow: 0px 0px 300px #000;
-    grid-column-start: 4;
+    margin-top: 15px;
 }
 #displayAddress{
     font-family: 'Raleway', sans-serif;
