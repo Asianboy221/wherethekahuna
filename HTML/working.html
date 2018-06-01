@@ -17,7 +17,6 @@
       width: auto;
       margin: 50px;
       margin-bottom: 0px;
-      display: table-cell;
       vertical-align: middle
     }
   </style>
@@ -29,14 +28,14 @@
       <!-- <div id="map"></div> -->
     </section>
     <section class="lower">
-      <h3 id="displayName"></h3>
-      <section class="displaygrid">
-        <img id="displayPhoto"/>
-        <ul id="displayHours"></ul>
-        <div id="displayRating"></div>
-        <div id="displayAddress"></div>
-      </section>
-
+        <h3 id="displayName"></h3>
+        <section class="displaygrid">
+          <img id="displayPhoto" />
+          <ul id="displayHours"></ul>
+          <div id="displayRating"></div>
+          <div id="displayAddress"></div>
+          <input type="button" onclick="changePlace" value="Next Place"/>
+        </section>
     </section>
   </section>
   <script src="../Scripts/initializeMap.js"></script>

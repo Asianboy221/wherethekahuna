@@ -1,4 +1,6 @@
 var map, infoWindow, pos, placeLoc, directionsService, directionsDisplay;
+var showingplace, places;
+var placeIndex = 0;
 
 function initMap() {
     // The starting location of Salt Lake City
@@ -74,6 +76,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function callback(results, status) {
+    places = results;
+    showingplace = places[0];
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         var marker = new google.maps.Marker({
             map: map,
@@ -123,7 +127,7 @@ function updateDisplay(result, status) {
 
             //Display Cost
             var showPrice = "";
-            for(var i = 0; i < cost; i++){
+            for (var i = 0; i < cost; i++) {
                 showPrice += "$";
             }
             var costDis = document.createElement('div');
@@ -132,7 +136,7 @@ function updateDisplay(result, status) {
             document.getElementById('displayRating').appendChild(costDis);
 
             //Display Hours
-            for(var i = 0; i < hours.length; i++) {
+            for (var i = 0; i < hours.length; i++) {
                 var item = document.createElement('li');
                 item.appendChild(document.createTextNode(hours[i]));
                 document.getElementById('displayHours').appendChild(item);
@@ -162,6 +166,25 @@ function createMarker(place) {
         infowindow.setContent(place.name);
         infowindow.open(map, this);
     });
+}
+
+function changePlace() {
+    placeIndex++;
+    if (placeIndex > places.length) {
+        placeIndex = 0;
+    }
+    showingplace = places[placeIndex];
+
+    var marker = new google.maps.Marker({
+        map: map,
+        place: {
+            placeId: showingplace.place_id,
+            location: showingplace.geometry.location,
+            icon: createMarker(showingplace)
+        }
+    });
+    calculateAndDisplayRoute(directionsService, directionsDisplay);
+    updateDisplay(showingplace, status);
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {

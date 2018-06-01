@@ -28,7 +28,7 @@ form {
     width: 100%;
     margin: auto;
     background: url(../img/landingbackground.png) no-repeat 50% 50%;
-    display: grid;
+    display: inline-grid;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     top: 0;
@@ -98,7 +98,8 @@ form {
 .upper {
     height: 100%;
     width: auto;
-    grid-row: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
     top: 0;
     background-size: cover;
 }
@@ -107,7 +108,7 @@ form {
     margin: 50px;
     margin-bottom: 0px;
     margin-top: 0px;
-    grid-row: 2;
+    grid-row: 3;
     background-size: cover;
 }
 .content {
@@ -144,6 +145,23 @@ input[type=text] {
     display: inline-block;
     border: solid #F9F3F4 3px;
     margin: 8px 8px;
+}
+input[type=button] {
+    border-radius: 9px;
+    font-family: 'Oswald';
+    color: #3D7EFF;
+    font-size: 135%;
+    padding: 5px 10px;
+    margin: 0 auto;
+    border: solid #3D7EFF 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    
+}
+input[type=button]:hover {
+    color: #FFF;
+    border: solid #FFF 3px;
 }
 .inputs {
     max-width: 500px;
