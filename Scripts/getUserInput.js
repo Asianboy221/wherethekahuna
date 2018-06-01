@@ -1,4 +1,5 @@
 var foodInput, locationInput
+
 function getUrlVariables(url) {
   var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
   if (queryString) {
@@ -24,7 +25,6 @@ function getUrlVariables(url) {
         locationInput = locationInput.replace('+', ' ');
       }
     }
-    //location = locationInput.getPlace();
     console.log('Food = ' + foodInput + ' Location = ' + locationInput);
   }
 }

@@ -1,6 +1,7 @@
 var map, infoWindow, pos, placeLoc, directionsService, directionsDisplay;
 var showingplace, places;
 var placeIndex = 0;
+var search;
 
 function initMap() {
     // The starting location of Salt Lake City
