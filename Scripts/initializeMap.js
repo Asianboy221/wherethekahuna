@@ -4,6 +4,7 @@ var placeIndex = 0;
 var search;
 
 function initMap() {
+    getUrlVariables();
     // The starting location of Salt Lake City
     var startingLocation = { lat: 40.760779, lng: -111.891047 };
     directionsService = new google.maps.DirectionsService;
@@ -18,6 +19,9 @@ function initMap() {
     infoWindow = new google.maps.InfoWindow;
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
+        console.log("Location Input = " + locationInput);
+        var searchLocation = new google.maps.places.SearchBox(locationInput);
+        
         navigator.geolocation.getCurrentPosition(function (position) {
             //Getting current location
             pos = {
@@ -43,7 +47,6 @@ function initMap() {
                 animation: google.maps.Animation.DROP,
                 icon: currentlocation
             });
-
             var service = new google.maps.places.PlacesService(map);
             service.nearbySearch({
                 location: pos,
@@ -65,7 +68,7 @@ function initMap() {
         // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
     }
-    getUrlVariables();
+    
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
