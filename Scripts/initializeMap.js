@@ -83,8 +83,8 @@ function callback(results, status) {
                 icon: createMarker(results[0])
             }
         });
-        console.log(results[0]);
-        console.log(results[1]);
+        //console.log(results[0]);
+        //console.log(results[1]);
     }
     calculateAndDisplayRoute(directionsService, directionsDisplay);
     updateDisplay(results[0], status);
@@ -102,9 +102,27 @@ function updateDisplay(result, status) {
             document.getElementById('displayName').innerHTML = place.name;
             var photos = place.photos;
             document.getElementById('displayPhoto').src = photos[0].getUrl({ 'maxWidth': 350, 'maxHeight': 250 });
-            document.getElementById('displayHours').innerHTML = place.opening_hours.weekday_text;
-            document.getElementById('displayRating').innerHTML = place.rating;
+            var hours = place.opening_hours.weekday_text;
+            var rating = place.rating;
             document.getElementById('displayAddress').innerHTML = place.vicinity;
+
+            //Display Rating
+            var rn = document.createElement('p');
+            rn.appendChild(document.createTextNode(rating));
+            document.getElementById('displayRating').appendChild(rn);
+            var innerStars = document.createElement('div');
+            var outerStars = document.createElement('div');
+            outerStars.className = 'outerStars';
+            innerStars.className = 'innerStars';
+            outerStars.appendChild(innerStars);
+            document.getElementById('displayRating').appendChild(outerStars)
+
+            //Display Hours
+            for(var i = 0; i < hours.length; i++) {
+                var item = document.createElement('li');
+                item.appendChild(document.createTextNode(hours[i]));
+                document.getElementById('displayHours').appendChild(item);
+            }
         });
     }
 }

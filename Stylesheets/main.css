@@ -32,23 +32,54 @@ form {
     background-size: cover; 
 }
 .displaygrid{
-    display: grid
+    display: inline-grid;
+    grid-column-gap: 20px;
 }
 #displayName{
     font-family: 'Raleway', sans-serif;
     color: #F9F3F4;
     text-shadow: 0px 0px 300px #000;
     font-size: 200%;
+    margin-top: 30px;
+    margin-bottom: 5px;
 }
 #displayHours{
     font-family: 'Raleway', sans-serif;
     color: #F9F3F4;
     text-shadow: 0px 0px 300px #000;
+    grid-column-start: 2;
 }
 #displayRating{
     font-family: 'Raleway', sans-serif;
     color: #F9F3F4;
     text-shadow: 0px 0px 300px #000;
+    grid-column-start: 3;
+}
+.outerStars{
+    display: inline-block;
+    position: relative;
+    font-family: FontAwesome
+}
+.outerStars::before{
+    content: "\f006 \f006 \f006 \f006 \f006"
+}
+.innerStars{
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+.innerStars::before{
+    content: "\f005 \f005 \f005 \f005 \f005";
+    color: #f8ce0b
+}
+#displayCost{
+    font-family: 'Raleway', sans-serif;
+    color: #F9F3F4;
+    text-shadow: 0px 0px 300px #000;
+    grid-column-start: 4;
 }
 #displayAddress{
     font-family: 'Raleway', sans-serif;
@@ -72,6 +103,7 @@ form {
     width: auto;
     margin: 50px;
     margin-bottom: 0px;
+    margin-top: 0px;
     grid-row: 2;
     background-size: cover;
 }
