@@ -44,16 +44,22 @@ form {
     font-family: 'Raleway', sans-serif;
     color: #F9F3F4;
     text-shadow: 0px 0px 300px #000;
+    margin: 5px;
+}
+#displayPhoto{
+    margin: 5px;
 }
 #displayRating{
     font-family: 'Raleway', sans-serif;
     color: #F9F3F4;
     text-shadow: 0px 0px 300px #000;
+    margin: 5px;
 }
 #displayAddress{
     font-family: 'Raleway', sans-serif;
     color: #F9F3F4;
     text-shadow: 0px 0px 300px #000;
+    margin: 5px;
 }
 .intro .inner {
     display: table-cell;
@@ -67,6 +73,7 @@ form {
     grid-row: 1;
     top: 0;
     background-size: cover;
+
 }
 .lower {
     width: auto;
@@ -74,6 +81,7 @@ form {
     margin-bottom: 0px;
     grid-row: 2;
     background-size: cover;
+    max-height: 50%;
 }
 .content {
     max-width: 500px;
