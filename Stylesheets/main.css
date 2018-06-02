@@ -8,6 +8,9 @@ html, body {
     width: 100%;
     font-size: 18px;
 }
+p{
+    margin-bottom: 5px;
+}
 form {
     margin-bottom: 15px;
 }
@@ -25,35 +28,72 @@ form {
     width: 100%;
     margin: auto;
     background: url(../img/landingbackground.png) no-repeat 50% 50%;
-    display: grid;
+    display: inline-grid;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     top: 0;
     background-size: cover; 
 }
 .displaygrid{
-    display: grid
+    display: inline-grid;
+    grid-column-gap: 20px;
 }
 #displayName{
     font-family: 'Raleway', sans-serif;
     color: #F9F3F4;
     text-shadow: 0px 0px 300px #000;
     font-size: 200%;
+    margin-top: 30px;
+    margin-bottom: 5px;
 }
 #displayHours{
     font-family: 'Raleway', sans-serif;
     color: #F9F3F4;
     text-shadow: 0px 0px 300px #000;
+<<<<<<< HEAD
     margin: 5px;
 }
 #displayPhoto{
     margin: 5px;
+=======
+    grid-column-start: 2;
+>>>>>>> 7160b23526204be60f115b463a3e724051e46287
 }
 #displayRating{
     font-family: 'Raleway', sans-serif;
     color: #F9F3F4;
     text-shadow: 0px 0px 300px #000;
+<<<<<<< HEAD
     margin: 5px;
+=======
+    grid-column-start: 3;
+}
+.outerStars{
+    display: inline-block;
+    position: relative;
+    font-family: FontAwesome
+}
+.outerStars::before{
+    content: "\f006 \f006 \f006 \f006 \f006"
+}
+.innerStars{
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+.innerStars::before{
+    content: "\f005 \f005 \f005 \f005 \f005";
+    color: #f8ce0b
+}
+#displayCost{
+    font-family: 'Raleway', sans-serif;
+    color: #F9F3F4;
+    text-shadow: 0px 0px 300px #000;
+    margin-top: 15px;
+>>>>>>> 7160b23526204be60f115b463a3e724051e46287
 }
 #displayAddress{
     font-family: 'Raleway', sans-serif;
@@ -70,7 +110,8 @@ form {
 .upper {
     height: 100%;
     width: auto;
-    grid-row: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
     top: 0;
     background-size: cover;
 
@@ -79,7 +120,8 @@ form {
     width: auto;
     margin: 50px;
     margin-bottom: 0px;
-    grid-row: 2;
+    margin-top: 0px;
+    grid-row: 3;
     background-size: cover;
     max-height: 50%;
 }
@@ -117,6 +159,23 @@ input[type=text] {
     display: inline-block;
     border: solid #F9F3F4 3px;
     margin: 8px 8px;
+}
+input[type=button] {
+    border-radius: 9px;
+    font-family: 'Oswald';
+    color: #3D7EFF;
+    font-size: 135%;
+    padding: 5px 10px;
+    margin: 0 auto;
+    border: solid #3D7EFF 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    
+}
+input[type=button]:hover {
+    color: #FFF;
+    border: solid #FFF 3px;
 }
 .inputs {
     max-width: 500px;

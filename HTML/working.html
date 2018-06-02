@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Where the Kahuna</title>
+  <link rel="stylesheet" type="text/css" href="../Stylesheets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="http://flaglane.com/download/american-flag/american-flag-large.gif">
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+    #map {
+      height: 100%;
+      width: auto;
+      margin: 50px;
+      margin-bottom: 0px;
+      vertical-align: middle
+    }
+  </style>
+</head>
+
+<body>
+  <section class="gridlayout">
+    <section class="upper" id="map">
+      <!-- <div id="map"></div> -->
+    </section>
+    <section class="lower">
+        <h3 id="displayName"></h3>
+        <section class="displaygrid">
+          <img id="displayPhoto" />
+          <ul id="displayHours"></ul>
+          <div id="displayRating"></div>
+          <div id="displayAddress"></div>
+          <input type="button" onclick="changePlace()" value="Next Place"/>
+        </section>
+    </section>
+  </section>
+  <script src="../Scripts/initializeMap.js"></script>
+  <script src="../Scripts/getUserInput.js"></script>
+  <script src="../Scripts/calculateDistance.js"></script>
+  <script src="../Scripts/getRandomFood.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAubZQ79mLt-Yli8Mac-8I4Nl56j8Y2W3s&libraries=places&callback=initMap"
+    async defer></script>
+</body>
+
+</html>
