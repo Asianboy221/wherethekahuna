@@ -14,12 +14,13 @@ function initMap() {
         zoom: 13,
         center: startingLocation
     });
+
     directionsDisplay.setMap(map);
     directionsDisplay.setOptions({ suppressMarkers: true })
     infoWindow = new google.maps.InfoWindow;
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
-        console.log("Location Input = " + locationInput);
+        //console.log("Location Input = " + JSON.stringify(locationInput));
         var searchLocation = new google.maps.places.SearchBox(locationInput);
         
         navigator.geolocation.getCurrentPosition(function (position) {

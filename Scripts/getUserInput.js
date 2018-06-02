@@ -1,4 +1,5 @@
-var foodInput, locationInput
+var foodInput, locationInput;
+var startingLocation = { lat: 40.760779, lng: -111.891047 };
 
 function getUrlVariables(url) {
   var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
@@ -8,15 +9,17 @@ function getUrlVariables(url) {
     for (var i = 0; i < arr.length; i++) {
       foodInput = arr[0].split('=');
       locationInput = arr[1].split('=');
+      
       if (foodInput[1]) {
         foodInput = foodInput[1];
       } else {
         foodInput = getRandomFood();
       }
+      
       if(locationInput[1]){
         locationInput = locationInput[1]
       } else {
-        locationInput = pos;
+        locationInput = startingLocation;
       }
       for (var k = 0; k < foodInput.length; k++) {
         foodInput = foodInput.replace('+', ' ');
@@ -25,6 +28,6 @@ function getUrlVariables(url) {
         locationInput = locationInput.replace('+', ' ');
       }
     }
-    console.log('Food = ' + foodInput + ' Location = ' + locationInput);
+    //console.log('Food = ' + foodInput + ' Location = ' + JSON.stringify(locationInput));
   }
 }
