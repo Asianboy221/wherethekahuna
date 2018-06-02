@@ -1,4 +1,4 @@
-var map, infoWindow, pos, placeLoc, directionsService, directionsDisplay;
+var map, infoWindow, pos, placeLoc, directionsService, directionsDisplay, placeMarker;
 var showingplace, places;
 var placeIndex = 0;
 
@@ -79,17 +79,19 @@ function callback(results, status) {
     places = results;
     showingplace = places[0];
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-        var marker = new google.maps.Marker({
-            map: map,
-            place: {
-                placeId: results[0].place_id,
-                location: results[0].geometry.location,
-                icon: createMarker(results[0])
-            }
-        });
+        createMarker(results[0]);
+        // placeMarker = new google.maps.Marker({
+        //     map: map,
+        //     place: {
+        //         placeId: results[0].place_id,
+        //         location: results[0].geometry.location,
+        //         icon: createMarker(results[0])
+        //     }
+        // });
         //console.log(results[0]);
         //console.log(results[1]);
     }
+
     calculateAndDisplayRoute(directionsService, directionsDisplay);
     updateDisplay(results[0], status);
 }
@@ -112,6 +114,8 @@ function updateDisplay(result, status) {
             document.getElementById('displayAddress').innerHTML = place.vicinity;
 
             //Display Rating
+            document.getElementById('displayRating').innerHTML = '';
+
             var rn = document.createElement('p');
             rn.appendChild(document.createTextNode(rating));
             document.getElementById('displayRating').appendChild(rn);
@@ -136,6 +140,7 @@ function updateDisplay(result, status) {
             document.getElementById('displayRating').appendChild(costDis);
 
             //Display Hours
+            document.getElementById('displayHours').innerHTML = '';
             for (var i = 0; i < hours.length; i++) {
                 var item = document.createElement('li');
                 item.appendChild(document.createTextNode(hours[i]));
@@ -155,14 +160,14 @@ function createMarker(place) {
         scaledSize: new google.maps.Size(50, 50), // scaled size
         origin: new google.maps.Point(0, 0), // origin
     };
-    var marker = new google.maps.Marker({
+    placeMarker = new google.maps.Marker({
         map: map,
         position: place.geometry.location,
         animation: google.maps.Animation.DROP,
         icon: icon//photos[0].getUrl({ 'maxWidth': 35, 'maxHeight': 35 })
     });
 
-    google.maps.event.addListener(marker, 'click', function () {
+    google.maps.event.addListener(placeMarker, 'click', function () {
         infowindow.setContent(place.name);
         infowindow.open(map, this);
     });
@@ -175,14 +180,15 @@ function changePlace() {
     }
     showingplace = places[placeIndex];
 
-    var marker = new google.maps.Marker({
-        map: map,
-        place: {
-            placeId: showingplace.place_id,
-            location: showingplace.geometry.location,
-            icon: createMarker(showingplace)
-        }
-    });
+    createMarker(showingplace);
+    // placeMarker = new google.maps.Marker({
+    //     map: map,
+    //     place: {
+    //         placeId: showingplace.place_id,
+    //         location: showingplace.geometry.location,
+    //         icon: createMarker(showingplace)
+    //     }
+    // });
     calculateAndDisplayRoute(directionsService, directionsDisplay);
     updateDisplay(showingplace, google.maps.places.PlacesServiceStatus.OK);
 }
