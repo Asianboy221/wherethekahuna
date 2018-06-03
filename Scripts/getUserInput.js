@@ -18,6 +18,8 @@ function getUrlVariables(url) {
       
       if(locationInput[1]){
         locationInput = locationInput[1]
+        console.log("Location Input = " + locationInput);
+        getAddress();
       } else {
         locationInput = startingLocation;
       }
