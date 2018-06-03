@@ -7,16 +7,19 @@ function getAddress(geocoder, address) {
         if (status == google.maps.GeocoderStatus.OK) {
             if(results[0].geometry.location_type == 'APPROXIMATE') {
                 var bounds = results[0].geometry.bounds;
+                var latMiddle = ((bounds.f.f + bounds.f.b) / 2);
+                var lngMiddle = ((bounds.b.f + bounds.b.b) / 2);
                 requestedLocation = {
-                    lat: bounds.f.b,
-                    lng: bounds.b.b
+                    lat: parseFloat(latMiddle),
+                    lng: parseFloat(lngMiddle)
                 };
             } else {
                 requestedLocation = results[0].geometry.location;
             }
-            // console.log(requestedLocation);
+            console.log(requestedLocation);
             // return requestedLocation;   
         } else {
+            console.log("Geocode not successful: " + status);   
             alert('Geocode was not successful for the following reason: ' + status);
         }
     });

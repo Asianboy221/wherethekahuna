@@ -16,7 +16,10 @@ function initMap() {
         center: startingLocation
     });
 
-    getAddress(geocoder, locationInput);
+    if(!(locationInput === undefined)) {
+        getAddress(geocoder, locationInput);
+    }
+    
     directionsDisplay.setMap(map);
     directionsDisplay.setOptions({ suppressMarkers: true })
     infoWindow = new google.maps.InfoWindow;
@@ -27,7 +30,7 @@ function initMap() {
 
         navigator.geolocation.getCurrentPosition(function (position) {
             //Getting current location
-            console.log(requestedLocation);
+            // console.log(requestedLocation);
             if (requestedLocation) {
                 pos = {
                     lat: requestedLocation.lat,
@@ -39,8 +42,8 @@ function initMap() {
                     lng: position.coords.longitude
                 };
             }
-            // pos = new google.maps.LatLng(pos.lat, pos.lng);
-            // map.panTo(pos);
+            pos = new google.maps.LatLng(parseFloat(pos.lat), parseFloat(pos.lng));
+            map.panTo(pos);
             //Center map over current location add marker to current location
             map.setCenter(pos);
             var icon = {
@@ -62,7 +65,7 @@ function initMap() {
             var service = new google.maps.places.PlacesService(map);
             service.nearbySearch({
                 location: pos,
-                radius: 1609, //1 Mile
+                radius: 8046,//1609, //1 Mile
                 keyword: [foodInput],
                 type: ['restaurant']
             }, callback);
@@ -92,6 +95,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function callback(results, status) {
+    // console.log(results);
     places = results;
     showingplace = places[0];
     if (status == google.maps.places.PlacesServiceStatus.OK) {
