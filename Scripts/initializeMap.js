@@ -194,6 +194,7 @@ function createMarker(place) {
 }
 
 function changePlace() {
+    placeMarker.setMap(null);
     placeIndex++;
     if (placeIndex > places.length) {
         placeIndex = 0;
