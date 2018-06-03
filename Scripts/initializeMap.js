@@ -1,4 +1,4 @@
-var map, infoWindow, pos, placeLoc, directionsService, directionsDisplay, placeMarker;
+var map, infoWindow, pos, placeLoc, directionsService, directionsDisplay, goecoder, placeMarker;
 var showingplace, places;
 var placeIndex = 0;
 var search;
@@ -9,12 +9,14 @@ function initMap() {
     var startingLocation = { lat: 40.760779, lng: -111.891047 };
     directionsService = new google.maps.DirectionsService;
     directionsDisplay = new google.maps.DirectionsRenderer;
+    geocoder = new google.maps.Geocoder();
     // The map, centered at Salt Lake City
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13,
         center: startingLocation
     });
 
+    getAddress(geocoder, locationInput);
     directionsDisplay.setMap(map);
     directionsDisplay.setOptions({ suppressMarkers: true })
     infoWindow = new google.maps.InfoWindow;
@@ -25,11 +27,20 @@ function initMap() {
 
         navigator.geolocation.getCurrentPosition(function (position) {
             //Getting current location
-            pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            map.panTo(pos);
+            console.log(requestedLocation);
+            if (requestedLocation) {
+                pos = {
+                    lat: requestedLocation.lat,
+                    lng: requestedLocation.lng
+                }
+            } else {
+                pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+            }
+            // pos = new google.maps.LatLng(pos.lat, pos.lng);
+            // map.panTo(pos);
             //Center map over current location add marker to current location
             map.setCenter(pos);
             var icon = {
@@ -57,7 +68,7 @@ function initMap() {
             }, callback);
             var request = {
                 //location: map.getCenter(),
-                location: getAddress(),
+                location: pos,
                 radius: 1609,
                 //query: getRandomFood()
                 //icon: icon
@@ -184,7 +195,6 @@ function changePlace() {
         placeIndex = 0;
     }
     showingplace = places[placeIndex];
-    placeMarker.setMap(null);
 
     createMarker(showingplace);
     // placeMarker = new google.maps.Marker({
