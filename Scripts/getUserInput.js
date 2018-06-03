@@ -18,8 +18,6 @@ function getUrlVariables(url) {
       
       if(locationInput[1]){
         locationInput = locationInput[1]
-        console.log("Location Input = " + locationInput);
-        getAddress();
       } else {
         locationInput = startingLocation;
       }
@@ -30,6 +28,8 @@ function getUrlVariables(url) {
         locationInput = locationInput.replace('+', ' ');
       }
     }
+    console.log("Location Input = " + locationInput);
+    //getAddress(locationInput);
     //console.log('Food = ' + foodInput + ' Location = ' + JSON.stringify(locationInput));
   }
 }

@@ -57,7 +57,7 @@ function initMap() {
             }, callback);
             var request = {
                 //location: map.getCenter(),
-                address: locationInput,
+                location: getAddress(),
                 radius: 1609,
                 //query: getRandomFood()
                 //icon: icon
